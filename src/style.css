@@ -1,0 +1,6 @@
+body {
+  background-color: bisque;
+  background-image: url('./assets/webpack.svg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
