@@ -1,0 +1,201 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,400;1,500&display=swap");
+
+/*
+  Reset code
+*/
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Roboto, Arial, Helvetica, sans-serif;
+  font-size: 1.1rem;
+  line-height: 1.5;
+  min-height: 90vh;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul,
+li {
+  margin: 0;
+  padding: 0;
+}
+
+button,
+input {
+  font-family: inherit;
+  background-color: inherit;
+  color: inherit;
+}
+
+/*
+  Custom properties
+*/
+:root {
+  --clr-dark: 230 35% 7%;
+  --clr-light: 231 77% 90%;
+  --clr-white: 0 0% 100%;
+}
+
+/*
+  colors
+*/
+.bg-dark {
+  background-color: hsl(var(--clr-dark));
+}
+
+.bg-light {
+  background-color: hsl(var(--clr-light));
+}
+
+.bg-white {
+  background-color: hsl(var(--clr-white));
+}
+
+.color-dark {
+  color: hsl(var(--clr-dark));
+}
+
+.color-light {
+  color: hsl(var(--clr-light));
+}
+
+.color-white {
+  color: hsl(var(--clr-white));
+}
+
+h1 {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+#score-container {
+  margin-top: 20px;
+  height: 35vh;
+  scroll-behavior: auto;
+  overflow-y: auto;
+}
+
+.score-row {
+  width: 100%;
+}
+
+button {
+  width: 100px;
+  height: 40px;
+  padding: 8px;
+}
+
+.score-row:nth-child(even) {
+  background-color: hsl(var(--clr-dark) /0.5);
+}
+
+.main-container {
+  padding-inline: 2rem;
+  margin-inline: auto;
+  max-width: 60rem;
+}
+
+.flex {
+  display: flex;
+  gap: var(--gap, 2rem);
+}
+
+.grid {
+  display: grid;
+  gap: var(--gap, 2rem);
+}
+
+.text-center {
+  text-align: center;
+}
+
+.column-direction {
+  flex-direction: column;
+}
+
+.space-around {
+  justify-content: space-around;
+}
+
+.section {
+  width: 100%;
+  max-height: 100vh;
+  margin-inline: auto;
+}
+
+.wrap {
+  flex-wrap: wrap;
+}
+
+.flex-1 {
+  flex: 1;
+}
+
+.flex-2 {
+  flex: 2;
+}
+
+input {
+  font-size: 1.2rem;
+}
+
+.recent-scores {
+  max-height: 40vh;
+}
+
+.input-score {
+  max-height: 40vh;
+}
+
+.box-border {
+  border-radius: 8px;
+  border: 2px solid hsl(var(--clr-light));
+}
+
+.hidden {
+  display: none;
+}
+
+@media (max-width: 360px) {
+  .input-score {
+    width: 100%;
+    max-height: 40vh;
+  }
+}
+
+@media (orientation: landscape) {
+  .section {
+    width: 45%;
+    min-height: 80vh;
+  }
+
+  .main-container {
+    width: 100%;
+    margin-inline: auto;
+    min-height: 80vh;
+  }
+
+  .score-container {
+    height: 80%;
+    scroll-behavior: auto;
+    overflow-y: auto;
+  }
+}
+
+@media (max-height: 360px) {
+  .score-container {
+    height: 35vh;
+  }
+}
