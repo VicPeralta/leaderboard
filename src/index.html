@@ -1,12 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Webpack Template</title>
-</head>
-<body>
-  
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LeaderBoard</title>
+  </head>
+  <body class="bg-white color-dark">
+    <h1 class="text-center">Leaderboard</h1>
+    <div class="flex space-around wrap main-container">
+      <section class="recent-scores section">
+        <div class="flex">
+          <h2>Recent Scores</h2>
+          <button type="button">Refresh</button>
+        </div>
+        <span class="hidden" id="message">Updating data...</span>
+        <div>
+          <div id="score-container">
+          </div>
+        </div>
+      </section>
+      <section class="input-score flex column-direction section">
+        <h2>Add your score</h2>
+        <input
+          type="text"
+          name="user"
+          id="user"
+          placeholder="Your name"
+          required
+        />
+        <input
+          type="number"
+          name="score"
+          id="score"
+          placeholder="Your score"
+          required
+        />
+        <button type="button" id="submit">Submit</button>
+      </section>
+    </div>
+  </body>
 </html>

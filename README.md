@@ -11,7 +11,7 @@
 - Javascript
 
 ## Live Demo
-Soon
+[Live demo](https://vicperalta.github.io/leaderboard/)
 
 ## Mobile
 <img src="./mobile.png" width="50%" height="auto"/>
