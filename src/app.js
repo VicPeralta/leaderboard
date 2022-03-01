@@ -1,12 +1,20 @@
+import DataProvider from './dataProvider.js';
+
 class App {
   scoreList = [];
 
+  constructor() {
+    this.dataProvider = new DataProvider();
+  }
+
   async getDataFromFile() {
-    this.scoreList = await fetch('../data.json').then((data) => data.json());
+    this.scoreList = await this.dataProvider.getScores();
   }
 
   async updateData() {
-    document.getElementById('message').classList.remove('hidden');
+    const message = document.getElementById('message');
+    message.textContent = 'Updating data...';
+    message.classList.remove('hidden');
     this.getDataFromFile().then(() => {
       document.getElementById('message').classList.add('hidden');
       this.updateList();
@@ -34,8 +42,21 @@ class App {
     scoresContainer.innerHTML = taskListHtml;
   }
 
-  addScore(user, score) {
-    this.scoreList.push({ user, score: Number(score) });
+  async addScore(user, score) {
+    const message = document.getElementById('message');
+    message.textContent = 'Sending score...';
+    message.classList.remove('hidden');
+    const result = await this.dataProvider.putScore(user, score);
+    if (result) {
+      message.classList.add('hidden');
+      this.scoreList.push({ user, score: Number(score) });
+      this.updateList();
+    } else {
+      message.textContent = 'Unable to update the score';
+      setTimeout(() => {
+        document.getElementById('message').classList.add('hidden');
+      }, 1000);
+    }
   }
 
   processInput() {
@@ -62,6 +83,9 @@ class App {
     });
     document.getElementById('score').addEventListener('keypress', (e) => {
       if (e.key === 'Enter') this.processInput();
+    });
+    document.getElementById('refresh').addEventListener('click', () => {
+      this.updateData();
     });
   }
 }

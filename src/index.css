@@ -82,7 +82,7 @@ h1 {
 
 #score-container {
   margin-top: 20px;
-  height: 35vh;
+  height: 60vh;
   scroll-behavior: auto;
   overflow-y: auto;
 }
@@ -168,10 +168,18 @@ input {
   display: none;
 }
 
+button:hover {
+  background-color: hsl(var(--clr-dark) /0.6);
+}
+
 @media (max-width: 360px) {
   .input-score {
     width: 100%;
     max-height: 40vh;
+  }
+
+  #score-container {
+    height: 30vh;
   }
 }
 
