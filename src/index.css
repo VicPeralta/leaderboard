@@ -80,9 +80,19 @@ h1 {
   margin-bottom: 20px;
 }
 
+.round-border-light {
+  border: 1px solid hsl(var(--clr-white));
+  border-radius: 8px;
+}
+
+.round-border-dark {
+  border: 1px solid hsl(var(--clr-dark));
+  border-radius: 8px;
+}
+
 #score-container {
   margin-top: 20px;
-  height: 60vh;
+  max-height:60vh;
   scroll-behavior: auto;
   overflow-y: auto;
 }
@@ -114,7 +124,7 @@ button {
 
 .grid {
   display: grid;
-  gap: var(--gap, 2rem);
+  gap: var(--gap, 1rem);
 }
 
 .text-center {
@@ -125,6 +135,9 @@ button {
   flex-direction: column;
 }
 
+.align-center {
+  align-items: center;
+}
 .space-around {
   justify-content: space-around;
 }

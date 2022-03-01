@@ -1,5 +1,8 @@
 import DataProvider from './dataProvider.js';
-
+import First from './assets/first.png';
+import Second from './assets/second.png';
+import Third from './assets/third.png';
+import NoPlace from './assets/noplace.png';
 class App {
   scoreList = [];
 
@@ -32,12 +35,27 @@ class App {
         return 0;
       });
     }
+    let position = 1;
+    let lastScore = 0;
+    let index = 0;
     this.scoreList.forEach((task) => {
+      let imageToUse = '';
+      if (index === 0) position = 1;
+      else if (lastScore > task.score) position += 1;
+      if (position === 1) imageToUse = First;
+      else if (position === 2) imageToUse = Second;
+      else if (position === 3) imageToUse = Third;
+      else imageToUse = NoPlace;
       taskListHtml += `
-      <div class="score-row flex">
-              <span class="user flex-1">${task.user}</span>
-              <span class="score flex-1">${task.score}</span>
+      <div class="score-card flex round-border-light align-center">
+              <img src=${imageToUse} alt="" width="50" height="50" />
+              <div>
+                <p>${task.user}</p>
+                <p>Points: ${task.score}</p>
+              </div>
       </div>`;
+      lastScore = task.score;
+      index += 1;
     });
     scoresContainer.innerHTML = taskListHtml;
   }
