@@ -92,7 +92,7 @@ h1 {
 
 #score-container {
   margin-top: 20px;
-  max-height:60vh;
+  max-height: 60vh;
   scroll-behavior: auto;
   overflow-y: auto;
 }
@@ -138,8 +138,14 @@ button {
 .align-center {
   align-items: center;
 }
+
 .space-around {
   justify-content: space-around;
+}
+
+.button-danger {
+  background-color: brown;
+  color: white;
 }
 
 .section {

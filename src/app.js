@@ -3,6 +3,7 @@ import First from './assets/first.png';
 import Second from './assets/second.png';
 import Third from './assets/third.png';
 import NoPlace from './assets/noplace.png';
+
 class App {
   scoreList = [];
 
@@ -10,7 +11,7 @@ class App {
     this.dataProvider = new DataProvider();
   }
 
-  async getDataFromFile() {
+  async getDataFromProvider() {
     this.scoreList = await this.dataProvider.getScores();
   }
 
@@ -18,7 +19,7 @@ class App {
     const message = document.getElementById('message');
     message.textContent = 'Updating data...';
     message.classList.remove('hidden');
-    this.getDataFromFile().then(() => {
+    this.getDataFromProvider().then(() => {
       document.getElementById('message').classList.add('hidden');
       this.updateList();
     });
@@ -104,6 +105,22 @@ class App {
     });
     document.getElementById('refresh').addEventListener('click', () => {
       this.updateData();
+    });
+    document.getElementById('reset').addEventListener('click', () => {
+      const message = document.getElementById('message');
+      message.textContent = 'Reseting scores...';
+      message.classList.remove('hidden');
+      const newKey = this.dataProvider.getNewGameKey();
+      if (newKey === '') {
+        message.textContent = 'Unable to reset the scores';
+        setTimeout(() => {
+          document.getElementById('message').classList.add('hidden');
+        }, 1000);
+      } else {
+        message.classList.add('hidden');
+        this.dataProvider.getScores();
+        this.updateData();
+      }
     });
   }
 }
