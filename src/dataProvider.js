@@ -55,5 +55,20 @@ class DataProvider {
     }
     return false;
   }
+
+  async putScoreFetch(user, score) {
+    const response = await fetch(`${this.baseURL}${this.initialGameKey}/scores`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        user,
+        score: Number(score),
+      }),
+    });
+    const final = response.json();
+    return final;
+  }
 }
 export default DataProvider;
